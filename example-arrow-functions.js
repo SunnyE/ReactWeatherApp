@@ -25,3 +25,13 @@ var person = {
 }
 
 persons.greet();
+
+
+var addStatement = (a, b) => {
+    return a + b; 
+}
+
+console.log(addStatement(4, 5));
+
+var addExpression = (a,b ) => a+b; 
+
