@@ -16,7 +16,7 @@ var Weather = React.createClass({
 
         this.setState({
             isLoading: true,
-            errorMessage: undefined
+            errorMessage: undefined 
         })
         openWeatherMap.getTemp(location).then(function(temp){
             that.setState({
@@ -24,7 +24,8 @@ var Weather = React.createClass({
                 temp: temp,
                 isLoading: false
             });
-        }, function(e){
+        }, function (e) {
+            console.log(e)
             that.setState({
                 isLoading:false,
                 errorMessage: e.message
@@ -46,7 +47,7 @@ var Weather = React.createClass({
         function renderError() {
             if (typeof errorMessage === 'string'){
                 return (
-                    <ErrorModal/>
+                    <ErrorModal message={errorMessage}/>
                 )
             }
         }
