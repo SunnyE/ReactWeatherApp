@@ -33,6 +33,10 @@ var Weather = React.createClass({
         })
         
     },
+    componentDidMount: function () {
+        
+    },
+    
     render: function(){
         var {isLoading, temp, location, errorMessage} = this.state;
 
