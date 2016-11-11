@@ -13,10 +13,13 @@ var Weather = React.createClass({
     },
     handleSearch: function(location){
         var that = this; 
-
+        // clears out all the data so it doesnt stay around and cause problems 
         this.setState({
             isLoading: true,
-            errorMessage: undefined 
+            errorMessage: undefined,
+            location: undefined,
+            temp:undefined
+
         })
         openWeatherMap.getTemp(location).then(function(temp){
             that.setState({
@@ -34,7 +37,13 @@ var Weather = React.createClass({
         
     },
     componentDidMount: function () {
-        
+        var location = this.props.location.query.location;
+
+        if (location && location.length > 0) { 
+            this.handleSearch(location);
+            //removes location uery from the URL after the city has been searched 
+            window.location.hash = "#/";
+        }
     },
     
     render: function(){
