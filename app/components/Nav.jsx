@@ -6,8 +6,15 @@ var Nav = React.createClass({
         e.preventDefault();
         
         var location = this.refs.location.value;
+        // takes input and changes it into a format that the browser can understand. 
+        var encodedLocation = encodeURIComponent(location);
+
+        if (location.length > 0){
+            this.refs.location.value='';
+            //sets the query string in the URL to the route to find the weather in the specified location
+            window.location.hash = '#/?location=' + encodedLocation;
+        }
         
-        alert(location);
     },
     render: function() {
         return (
