@@ -45,6 +45,7 @@ var Weather = React.createClass({
             window.location.hash = "#/";
         }
     },
+    // listens for a change in the props and updates the weather
     componentWillReceiveProps: function(newProps) {
         var location = newProps.location.query.location;
 
